@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nyaburi · El teu drive de xismes</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--surf:#f8fafd;--card:#fff;--line:#e1e3e1;--tx:#1f1f1f;--mut:#5f6368;--hov:#eef0f3;--sel:#fde7e4;--selt:#8e0e24;--g:linear-gradient(135deg,#ff6b5b 0%,#d32f2f 55%,#8e0e24 100%);--acc:#c62828;--sh:0 1px 3px rgba(0,0,0,.2);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131314;--surf:#1b1b1d;--card:#1e1f20;--line:#3c3d3f;--tx:#e3e3e3;--mut:#a8abb0;--hov:#2a2b2d;--sel:#4a1c20;--selt:#ffb4ab;--acc:#ff6b5b;--sh:0 1px 3px rgba(0,0,0,.6);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#131314;--surf:#1b1b1d;--card:#1e1f20;--line:#3c3d3f;--tx:#e3e3e3;--mut:#a8abb0;--hov:#2a2b2d;--sel:#4a1c20;--selt:#ffb4ab;--acc:#ff6b5b;--sh:0 1px 3px rgba(0,0,0,.6);color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--tx);font-family:"Google Sans Flex","Google Sans","Product Sans",Raleway,Arial,sans-serif;font-size:14px}
+button,select,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
+svg.i{width:20px;height:20px;fill:currentColor;flex:none}
+.btn{border:0;border-radius:999px;padding:10px 22px;font-weight:600;background:var(--g);color:#fff;text-decoration:none;display:inline-block}.btn.o{background:none;color:var(--acc);border:1px solid var(--line)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.ib{border:0;background:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--mut)}.ib:hover{background:var(--hov)}.ib.on{background:var(--sel);color:var(--selt)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px}
+.logo b{width:34px;height:34px;border-radius:10px;background:var(--g);display:grid;place-items:center}.logo b svg{fill:#fff}
+.gt{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+#landing{display:none}.lw{max-width:1080px;margin:0 auto;padding:0 24px}
+.ln{display:flex;align-items:center;justify-content:space-between;padding:18px 0}.ln nav{display:flex;gap:26px;align-items:center}.ln nav a{color:var(--mut);text-decoration:none;font-weight:600}.ln nav a.btn{color:#fff}
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:50px;line-height:1.08;margin:0 0 18px;font-weight:800}.hero p{font-size:18px;color:var(--mut);line-height:1.6;margin:0 0 28px;max-width:520px}.cta{display:flex;gap:12px;flex-wrap:wrap}
+.mock{background:var(--surf);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--sh)}
+.sec{padding:48px 0}.sec h2{font-size:30px;margin:0 0 10px;font-weight:800}.sec>p{color:var(--mut);max-width:620px;line-height:1.6;margin:0 0 26px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.fc{background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:24px}
+.fc .n{width:40px;height:40px;border-radius:12px;background:var(--g);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:14px}.fc h3{margin:0 0 8px;font-size:18px}.fc p{margin:0;color:var(--mut);line-height:1.55}
+.band{background:var(--g);color:#fff;border-radius:24px;padding:38px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.band h2{margin:0 0 8px;font-size:26px}.band p{margin:0;opacity:.92;max-width:560px;line-height:1.55}.band .btn{background:#fff;color:#8e0e24}
+.foot{padding:30px 0 50px;color:var(--mut);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+#app{display:none;height:100vh;height:100dvh;flex-direction:column;background:var(--surf)}
+.top{display:flex;align-items:center;gap:6px;padding:8px 16px;height:64px}.top .logo{width:224px;flex:none}
+.sb{flex:1;max-width:720px;display:flex;align-items:center;gap:12px;background:var(--hov);border-radius:999px;padding:0 18px;height:46px;color:var(--mut)}.sb input{flex:1;border:0;background:none;outline:0;color:var(--tx)}
+.sp{flex:1}
+.bur{display:flex;align-items:center;gap:8px;background:var(--sel);color:var(--selt);padding:8px 16px;border-radius:999px;font-weight:700;margin:0 6px}.bur i{width:18px;height:18px;border-radius:50%;background:var(--g)}
+.av{width:36px;height:36px;border-radius:50%;background:var(--g) center/cover;flex:none}
+.body{flex:1;display:flex;min-height:0}
+.side{width:256px;flex:none;padding:6px 12px;overflow:auto}.nw{position:relative}
+.new{display:flex;align-items:center;gap:12px;background:var(--card);border:0;box-shadow:var(--sh);border-radius:16px;padding:16px 24px 16px 16px;font-weight:600;margin:6px 0 14px;font-size:15px}.new svg{color:var(--acc)}
+.menu{display:none;position:absolute;top:62px;left:0;width:230px;background:var(--card);border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.3);padding:8px 0;z-index:15}.menu button{display:flex;gap:14px;align-items:center;width:100%;border:0;background:none;padding:10px 18px;text-align:left}.menu button:hover{background:var(--hov)}
+.nv{display:flex;align-items:center;gap:14px;width:100%;border:0;background:none;text-align:left;padding:8px 16px;border-radius:999px;margin-bottom:1px}.nv:hover{background:var(--hov)}.nv.on{background:var(--sel);color:var(--selt);font-weight:700}.nv em{margin-left:auto;font-style:normal;font-size:12px;color:var(--mut)}
+.lvl{margin:16px 8px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);font-size:12px;color:var(--mut)}.pb{height:6px;border-radius:6px;background:var(--hov);margin:8px 0;overflow:hidden}.pb div{height:100%;background:var(--g)}
+.main{flex:1;min-width:0;background:var(--card);border-radius:16px;margin:0 8px 8px 0;padding:14px 20px;overflow:auto}
+.det{display:none;width:300px;flex:none;background:var(--card);border-radius:16px;margin:0 8px 8px 0;padding:18px;overflow:auto}
+.det h3{margin:0 0 12px;font-weight:500;font-size:18px}.det .tx{background:var(--sel);color:var(--tx);border-radius:12px;padding:14px;line-height:1.5;margin-bottom:14px}
+.kv{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}.kv span{color:var(--mut)}
+.hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;flex-wrap:wrap}.hd h1{font-size:22px;font-weight:500;margin:0}.hd a{cursor:pointer;color:var(--mut)}.hr{display:flex;gap:4px;align-items:center}
+.sub{color:var(--mut);margin:0 0 14px}.sec2{color:var(--mut);font-weight:600;margin:14px 0 8px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.chip{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:7px 12px}.chip.on{background:var(--sel);color:var(--selt);border-color:transparent;font-weight:700}
+.tb{display:flex;align-items:center;gap:2px;background:var(--sel);color:var(--selt);border-radius:999px;padding:2px 8px;margin-bottom:12px;flex-wrap:wrap}.tb b{margin:0 10px 0 4px;font-weight:600}.tb button:not(.ib){border:0;background:none;display:flex;gap:6px;align-items:center;padding:8px 12px;border-radius:999px;font-weight:500}.tb button:not(.ib):hover{background:rgba(0,0,0,.08)}
+.fold{display:flex;gap:12px;flex-wrap:wrap}.fo{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--surf);border-radius:14px;padding:12px 16px;min-width:200px;font-weight:600}.fo:hover{background:var(--hov)}.fo svg{color:var(--acc)}.fo em{margin-left:auto;font-style:normal;color:var(--mut);font-size:12px}
+.row{display:grid;grid-template-columns:minmax(0,3fr) 1fr 1.3fr 1.1fr;align-items:center;gap:12px;padding:0 12px;height:48px;border-bottom:1px solid var(--line)}.row:hover{background:var(--hov)}.row.on{background:var(--sel)}.row.h{height:40px;color:var(--mut);font-weight:600;position:sticky;top:0;background:var(--card);z-index:1}
+.nm{display:flex;gap:12px;align-items:center;min-width:0}.nm>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nm>svg{color:var(--acc)}.stt{display:flex;color:#f4b400}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.fcard{border:1px solid var(--line);border-radius:14px;background:var(--surf);overflow:hidden}.fcard:hover{box-shadow:var(--sh)}.fcard.on{outline:2px solid var(--acc)}
+.pv{height:100px;padding:14px;font-size:13px;line-height:1.5;color:var(--mut);background:linear-gradient(180deg,var(--sel),transparent);overflow:hidden}
+.fm{padding:10px 14px;border-top:1px solid var(--line);background:var(--card)}.fm h4{margin:0 0 4px;font-size:14px;display:flex;gap:8px;align-items:center}.fm h4 svg{color:var(--acc)}.fm small{color:var(--mut)}
+.ex{display:grid;grid-template-columns:1fr 40px 1fr;gap:12px;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px;background:var(--surf)}
+.xs{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:12px}.xs small{color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.4px;font-size:11px}.xs b{display:block;margin:4px 0}.xs p{margin:0;color:var(--mut)}.xs.pn{border-style:dashed}
+.ar{display:grid;place-items:center;color:var(--acc)}.xi{grid-column:1/-1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--mut)}.xi .btn{padding:7px 16px}
+.mrow{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;background:var(--surf)}.mrow .r{margin-left:auto;display:flex;align-items:center;gap:12px;font-weight:700;color:var(--selt)}
+.tag{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:2px 8px;background:var(--hov);color:var(--mut)}
+.empty{text-align:center;color:var(--mut);padding:60px 20px;border:1px dashed var(--line);border-radius:16px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:20;padding:16px}
+.md{background:var(--card);border-radius:20px;padding:26px;width:100%;max-width:480px;max-height:90vh;overflow:auto}.md h3{margin:0 0 14px;font-size:20px;font-weight:500}
+.md label{display:block;font-size:13px;color:var(--mut);font-weight:600;margin:12px 0 4px}.md input,.md select,.md textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}.md textarea{min-height:90px;resize:vertical}
+.md .ft{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+.md label.ph{width:110px;height:110px;border-radius:50%;border:2px dashed var(--line);background:var(--hov) center/cover;display:grid;place-items:center;text-align:center;cursor:pointer;margin:0;color:var(--mut)}
+.fab{display:none;position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:10;box-shadow:var(--sh);padding:14px 20px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#202124;color:#fff;border-radius:10px;padding:12px 20px;display:none;z-index:30}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.hero h1{font-size:34px}.cols{grid-template-columns:1fr}.ln nav a:not(.btn){display:none}.body{flex-direction:column}.side{width:100%;padding:0 8px;overflow-x:auto}.side .nw,.side .lvl{display:none}#nav{display:flex;gap:6px}.nv{width:auto;white-space:nowrap}.fab{display:block}.det{display:none!important}.top .logo{width:auto}.top .logo span,.bur span{display:none}.main{margin:0;border-radius:16px 16px 0 0;padding:12px}.row{grid-template-columns:minmax(0,1fr) 100px}.row>span:nth-child(2),.row>span:nth-child(3){display:none}.ex{grid-template-columns:1fr}.ar{display:none}}
+</style>
+</head>
+<body>
+
+<div id="landing"><div class="lw">
+ <div class="ln"><div class="logo"><b class="lg"></b>Nyaburi</div><nav><a href="#inici">Com funciona</a><a href="#inici">Buris</a><a class="btn" href="#app">Entra a Nyaburi</a></nav></div>
+ <section class="hero"><div>
+  <h1>El teu drive de <span class="gt">xismes</span> i confidències.</h1>
+  <p>Crea, ordena en carpetes i intercanvia xismes d’amor. A Nyaburi veus sempre quins xismes dones i quins n’aconsegueixes a canvi.</p>
+  <div class="cta"><a class="btn" href="#app">Començar ara</a><a class="btn o" href="#inici">Veure com funciona</a></div></div>
+  <div class="mock"><strong>Intercanvis</strong>
+   <div class="ex" style="grid-template-columns:1fr 30px 1fr;margin:10px 0 0"><div class="xs"><small>Dones</small><b>Un xisme teu</b></div><div class="ar">⇄</div><div class="xs"><small>Aconsegueixes</small><b>Un xisme nou</b></div></div></div></section>
+ <section class="sec"><h2>Un drive pensat per a xismes</h2><p>Cada xisme i cada confidència és un element de la teva unitat, amb carpetes, estrelles, paperera i panell de detalls.</p>
+  <div class="cols"><div class="fc"><div class="n">1</div><h3>Crea i ordena</h3><p>Desa xismes i confidències, organitza’ls en carpetes i troba’ls amb la cerca.</p></div>
+  <div class="fc"><div class="n">2</div><h3>Intercanvia</h3><p>Ofereix un xisme teu a un altre membre i registra el xisme que n’obtens.</p></div>
+  <div class="fc"><div class="n">3</div><h3>Segueix-ho tot</h3><p>La vista d’intercanvis mostra què dones, què reps i en quin estat és cada acord.</p></div></div></section>
+ <section class="sec"><div class="band"><div><h2>Guanya Buris amb missions</h2><p>Els Buris només s’aconsegueixen completant missions. No tenen cap valor sobre els xismes ni serveixen per pagar intercanvis.</p></div><a class="btn" href="#app">Veure les missions</a></div></section>
+ <div class="foot"><span>© 2026 Nyaburi · Els xismes són anònims i confidencials.</span><span>Privacitat · Condicions · Contacte</span></div>
+</div></div>
+
+<div id="app">
+ <div class="top"><div class="logo"><b class="lg"></b><span>Nyaburi</span></div>
+  <div class="sb"><span id="sic"></span><input id="q" placeholder="Cerca a Nyaburi"></div><div class="sp"></div>
+  <button class="ib" id="thb" title="Canvia de tema" onclick="th()"></button>
+  <div class="bur"><i></i><b id="bal">0</b><span>Buris</span></div><div class="av" id="av"></div></div>
+ <button class="btn fab" onclick="openItem()">+ Nou xisme</button>
+ <div class="body">
+  <aside class="side"><div class="nw"><button class="new" id="nb" onclick="nmT(event)"></button><div class="menu" id="nm"></div></div><div id="nav"></div>
+   <div class="lvl"><b style="color:var(--tx)" id="lvn"></b><div class="pb"><div id="lvb"></div></div><span id="lvt"></span></div></aside>
+  <main class="main" id="main"></main><aside class="det" id="det"></aside>
+ </div>
+</div>
+<div class="ov" id="ov"><div class="md" id="md"></div></div><div class="toast" id="toast"></div>
+
+<script>
+var IC={heart:"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z",plus:"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z",search:"M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",folder:"M10 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2h-8z",chat:"M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z",lock:"M18 8h-1V6a5 5 0 00-10 0v2H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V10a2 2 0 00-2-2zM9 6a3 3 0 016 0v2H9z",swap:"M6.99 11L3 15l3.99 4v-3H14v-2H6.99zM21 9l-3.99-4v3H10v2h7.01v3z",inbox:"M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm0 12h-4a3 3 0 01-6 0H5V5h14z",star:"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z",trash:"M6 19a2 2 0 002 2h8a2 2 0 002-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z",edit:"M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75z",copy:"M16 1H4a2 2 0 00-2 2v14h2V3h12zm3 4H8a2 2 0 00-2 2v14a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2zm0 16H8V7h11z",info:"M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2zm0-8h-2V7h2z",grid:"M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z",list:"M3 5h18v2H3zm0 6h18v2H3zm0 6h18v2H3z",moon:"M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36A5.39 5.39 0 0116.5 12 5.5 5.5 0 0112 3z",close:"M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z",restore:"M13 3a9 9 0 00-9 9H1l3.89 3.89.07.14L9 12H6a7 7 0 117 7 6.98 6.98 0 01-4.9-2l-1.42 1.42A9 9 0 1013 3z",clock:"M12 2a10 10 0 100 20 10 10 0 000-20zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z",flag:"M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"};
+function ic(n){return '<svg class="i" viewBox="0 0 24 24"><path d="'+IC[n]+'"/></svg>'}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function $(i){return document.getElementById(i)}
+function val(i){return $(i).value.trim()}
+function fd(m){var d=new Date(m);return d.toLocaleDateString("ca",{day:"numeric",month:"short"})+" "+d.toLocaleTimeString("ca",{hour:"2-digit",minute:"2-digit"})}
+var S={bal:0,view:"unitat",q:"",fid:null,fn:1,nid:1,xn:1,sel:null,mode:"list",sort:"mod",tf:"tot",sf:"tot",xf:"tot",det:0,lock:0,profile:null,ph:null,folders:[],mine:[],ex:[],
+ms:[{id:1,t:"Crea el teu primer xisme",d:"Desa un xisme o una confidència.",r:15,g:1,p:0,c:0},{id:2,t:"Desa 3 xismes",d:"Arriba a tres elements a la teva unitat.",r:30,g:3,p:0,c:0},{id:3,t:"Proposa un intercanvi",d:"Ofereix un xisme teu a un altre membre.",r:20,g:1,p:0,c:0},{id:4,t:"Completa un intercanvi",d:"Marca’l com a fet i registra el xisme que has aconseguit.",r:40,g:1,p:0,c:0},{id:5,t:"Crea una carpeta",d:"Organitza la teva unitat.",r:10,g:1,p:0,c:0},{id:6,t:"Destaca un xisme",d:"Marca’n un amb l’estrella.",r:5,g:1,p:0,c:0},{id:7,t:"Connexió diària",d:"Entra a Nyaburi avui.",r:5,g:1,p:1,c:0},{id:8,t:"Crea el teu perfil",d:"Afegeix àlies i foto de perfil.",r:10,g:1,p:0,c:0}]};
+var NAV=[["unitat","folder","La meva unitat"],["intercanvis","swap","Intercanvis"],["rebuts","inbox","Rebuts"],["recents","clock","Recents"],["destacats","star","Destacats"],["paperera","trash","Paperera"],["missions","flag","Missions"]];
+function toast(m){var t=$("toast");t.textContent=m;t.style.display="block";clearTimeout(toast.h);toast.h=setTimeout(function(){t.style.display="none"},2400)}
+function prog(id,n){S.ms.forEach(function(m){if(m.id===id&&!m.c)m.p=Math.min(m.g,m.p+n)})}
+function item(id){return S.mine.filter(function(x){return x.id===id})[0]}
+function fname(id){var f=S.folders.filter(function(a){return a.id===id})[0];return f?f.name:"La meva unitat"}
+function stOf(id){var s="Privat";S.ex.forEach(function(e){if(e.g===id){if(e.st==="fet")s="Intercanviat";else if(s!=="Intercanviat")s="En intercanvi"}});return s}
+function match(o){return !S.q||(o.t+" "+o.d).toLowerCase().indexOf(S.q.toLowerCase())>-1}
+function items(){var v=S.view,L=S.mine.filter(match);
+ if(v==="paperera")return L.filter(function(x){return x.del});
+ L=L.filter(function(x){return !x.del});
+ if(v==="destacats")L=L.filter(function(x){return x.star});else if(v==="unitat"&&!S.q)L=L.filter(function(x){return x.f===S.fid});
+ if(S.tf!=="tot")L=L.filter(function(x){return x.cat===S.tf});
+ if(S.sf!=="tot")L=L.filter(function(x){return stOf(x.id)===S.sf});
+ L.sort(function(a,b){return S.sort==="nom"?a.t.localeCompare(b.t,"ca"):b.m-a.m});
+ return v==="recents"?L.slice(0,20):L}
+function chrome(){
+ $("bal").textContent=S.bal;
+ if(S.profile){$("av").style.backgroundImage="url("+S.profile.p+")";$("av").title=S.profile.n}
+ var del=S.mine.filter(function(x){return x.del}).length,rd=S.ms.filter(function(m){return !m.c&&m.p>=m.g}).length;
+ var c={intercanvis:S.ex.filter(function(e){return e.st==="pendent"}).length,rebuts:S.ex.filter(function(e){return e.st==="fet"}).length,paperera:del,missions:rd};
+ $("nav").innerHTML=NAV.map(function(n){return `<button class="nv${S.view===n[0]?" on":""}" onclick="go('${n[0]}')">${ic(n[1])}${n[2]}${c[n[0]]?`<em>${c[n[0]]}</em>`:""}</button>`}).join("");
+ var l=S.bal>=150?["Mestre confident",300]:S.bal>=60?["Confident",150]:["Aprenent",60];
+ $("lvn").textContent="Nivell: "+l[0];$("lvb").style.width=Math.min(100,S.bal/l[1]*100)+"%";$("lvt").textContent=S.bal+" Buris · només es guanyen amb missions"}
+function go(v){S.view=v;S.sel=null;S.fid=null;S.tf=S.sf="tot";render()}
+function pick(id){S.sel=S.sel===id?null:id;if(S.sel)S.det=1;render()}
+function sel(k,a){return `<select class="chip" onchange="S.${k}=this.value;render()">`+a.map(function(p){return `<option value="${p[0]}"${S[k]===p[0]?" selected":""}>${p[1]}</option>`}).join("")+`</select>`}
+function hdr(t,x){return `<div class="hd"><h1>${t}</h1><div class="hr">${x||""}</div></div>`}
+function vt(){return `<button class="ib${S.mode==="list"?" on":""}" title="Vista de llista" onclick="S.mode='list';render()">${ic("list")}</button><button class="ib${S.mode==="grid"?" on":""}" title="Vista de quadrícula" onclick="S.mode='grid';render()">${ic("grid")}</button><button class="ib${S.det?" on":""}" title="Detalls" onclick="S.det=!S.det;render()">${ic("info")}</button>`}
+function sti(x){return x.star?`<i class="stt">${ic("star")}</i>`:""}
+function tbar(x){var b=function(a,i,l){return `<button onclick="act('${a}')">${ic(i)}${l}</button>`};
+ return `<div class="tb"><button class="ib" onclick="S.sel=null;render()">${ic("close")}</button><b>${esc(x.t)}</b>`+(x.del?b("res","restore","Restaura")+b("purge","trash","Elimina per sempre"):b("ex","swap","Intercanvia")+b("edit","edit","Edita i mou")+b("star","star",x.star?"Treu dels destacats":"Destaca")+b("dup","copy","Duplica")+b("del","trash","Elimina"))+`</div>`}
+function files(L){
+ if(!L.length){var m={unitat:"Encara no hi ha cap xisme aquí.",recents:"Encara no hi ha activitat recent.",destacats:"Cap xisme destacat. Marca’n un amb l’estrella.",paperera:"La paperera és buida."};
+  return `<div class="empty">${m[S.view]}${S.view==="unitat"?`<br><br><button class="btn" onclick="openItem()">Nou xisme</button>`:""}</div>`}
+ if(S.mode==="grid")return `<div class="grid">`+L.map(function(x){return `<div class="fcard${S.sel===x.id?" on":""}" onclick="pick(${x.id})"><div class="pv">${esc(x.d)}</div><div class="fm"><h4>${ic(x.cat==="Xisme"?"chat":"lock")}${esc(x.t)}${sti(x)}</h4><small>${stOf(x.id)} · ${fd(x.m)}</small></div></div>`}).join("")+`</div>`;
+ return `<div class="row h"><span>Nom</span><span>Propietari</span><span>Modificat</span><span>Estat</span></div>`+L.map(function(x){return `<div class="row${S.sel===x.id?" on":""}" onclick="pick(${x.id})"><span class="nm">${ic(x.cat==="Xisme"?"chat":"lock")}<span>${esc(x.t)}</span>${sti(x)}</span><span>Jo</span><span>${fd(x.m)}</span><span>${stOf(x.id)}</span></div>`}).join("")}
+function render(){
+ chrome();var v=S.view,x=item(S.sel),h="";
+ if(v==="intercanvis"){
+  var E=S.ex.filter(function(e){return S.xf==="tot"||e.st===S.xf}).sort(function(a,b){return b.m-a.m});
+  h=hdr("Intercanvis",`<button class="btn" onclick="openEx()">Nou intercanvi</button>`)+`<p class="sub">Els xismes que dones i els que aconsegueixes a canvi.</p><div class="chips">${sel("xf",[["tot","Tots"],["pendent","Pendents"],["fet","Fets"]])}</div>`;
+  h+=E.length?E.map(function(e){var g=item(e.g);return `<div class="ex"><div class="xs"><small>Dones</small><b>${esc(g.t)}</b><p>${esc(g.d)}</p></div><div class="ar">${ic("swap")}</div>`+(e.got?`<div class="xs"><small>Aconsegueixes</small><b>${esc(e.got.t)}</b><p>${esc(e.got.d)}</p></div>`:`<div class="xs pn"><small>Aconsegueixes</small><b>Pendent</b><p>Busques: ${esc(e.want)}</p></div>`)+`<div class="xi">Amb ${esc(e.to)} · ${fd(e.m)}<span class="sp"></span>`+(e.st==="fet"?`<span class="tag">Fet</span>`:`<button class="btn" onclick="openDone(${e.id})">Marca com a fet</button><button class="btn o" onclick="cancelEx(${e.id})">Cancel·la</button>`)+`</div></div>`}).join(""):`<div class="empty">Encara no tens cap intercanvi.<br><br><button class="btn" onclick="openEx()">Nou intercanvi</button></div>`}
+ else if(v==="rebuts"){
+  var R=S.ex.filter(function(e){return e.st==="fet"&&match(e.got)});
+  h=hdr("Rebuts","")+`<p class="sub">Els xismes que has aconseguit amb els teus intercanvis.</p>`+(R.length?`<div class="grid">`+R.map(function(e){return `<div class="fcard"><div class="pv">${esc(e.got.d)}</div><div class="fm"><h4>${ic("chat")}${esc(e.got.t)}</h4><small>De ${esc(e.to)} · a canvi de «${esc(item(e.g).t)}»</small></div></div>`}).join("")+`</div>`:`<div class="empty">Encara no has rebut cap xisme. Completa un intercanvi per veure’l aquí.</div>`)}
+ else if(v==="missions"){
+  h=hdr("Missions","")+`<p class="sub">Els Buris només s’aconsegueixen amb missions.</p>`+S.ms.map(function(m){var ok=m.p>=m.g;return `<div class="mrow"><div><b>${esc(m.t)}</b><div style="color:var(--mut)">${esc(m.d)} (${m.p}/${m.g})</div></div><div class="r">+${m.r} Buris${m.c?`<span class="tag">Fet</span>`:`<button class="btn" ${ok?"":"disabled"} onclick="claim(${m.id})">Reclama</button>`}</div></div>`}).join("")}
+ else{
+  var L=items(),F=(v==="unitat"&&!S.fid&&!S.q)?S.folders:[];
+  var t=v==="unitat"?(S.fid?`<a onclick="S.fid=null;S.sel=null;render()">La meva unitat</a> › ${esc(fname(S.fid))}`:"La meva unitat"):NAV.filter(function(n){return n[0]===v})[0][2];
+  h=hdr(t,(v==="paperera"&&L.length?`<button class="btn o" onclick="S.mine=S.mine.filter(function(x){return !x.del});S.sel=null;render()">Buida la paperera</button>`:"")+vt());
+  h+=x?tbar(x):`<div class="chips">${sel("tf",[["tot","Tipus: tots"],["Xisme","Xisme"],["Confidència","Confidència"]])}${v==="paperera"?"":sel("sf",[["tot","Estat: tots"],["Privat","Privat"],["En intercanvi","En intercanvi"],["Intercanviat","Intercanviat"]])}${sel("sort",[["mod","Ordena: modificació"],["nom","Ordena: nom"]])}</div>`;
+  if(F.length)h+=`<div class="sec2">Carpetes</div><div class="fold">`+F.map(function(f){return `<button class="fo" onclick="S.fid=${f.id};S.sel=null;render()">${ic("folder")}${esc(f.name)}<em>${S.mine.filter(function(a){return a.f===f.id&&!a.del}).length}</em></button>`}).join("")+`</div>`+(L.length?`<div class="sec2">Xismes</div>`:"");
+  h+=files(L)}
+ $("main").innerHTML=h;detail()}
+function kv(a,b){return `<div class="kv"><span>${a}</span><b style="font-weight:500">${b}</b></div>`}
+function detail(){var d=$("det");if(!S.det){d.style.display="none";return}d.style.display="block";var x=item(S.sel);
+ if(x){var e=S.ex.filter(function(e){return e.g===x.id})[0];d.innerHTML=`<h3>${esc(x.t)}</h3><div class="tx">${esc(x.d)}</div>`+kv("Tipus",x.cat)+kv("Estat",stOf(x.id))+(e?kv("Intercanvi amb",esc(e.to)):"")+kv("Propietari","Jo")+kv("Ubicació",esc(fname(x.f)))+kv("Modificat",fd(x.m))+kv("Destacat",x.star?"Sí":"No")}
+ else{var l=S.mine.filter(function(x){return !x.del}),n=function(s){return l.filter(function(x){return stOf(x.id)===s}).length};
+  d.innerHTML=`<h3>La teva unitat</h3>`+kv("Xismes i confidències",l.length)+kv("Privats",n("Privat"))+kv("En intercanvi",n("En intercanvi"))+kv("Intercanviats",n("Intercanviat"))+kv("Rebuts",S.ex.filter(function(e){return e.st==="fet"}).length)+kv("Carpetes",S.folders.length)+kv("Destacats",l.filter(function(x){return x.star}).length)+`<p class="sub" style="margin-top:14px">Selecciona un xisme per veure’n els detalls.</p>`}}
+function act(a){var x=item(S.sel);if(!x)return;
+ if(a==="edit"){openItem(x.id);return}
+ if(a==="ex"){openEx(x.id);return}
+ if(a==="star"){x.star=x.star?0:1;if(x.star)prog(6,1)}
+ else if(a==="dup"){var c=JSON.parse(JSON.stringify(x));c.id=S.nid++;c.t+=" (còpia)";c.m=Date.now();S.mine.push(c);S.sel=c.id;prog(2,1)}
+ else if(a==="del"){if(stOf(x.id)!=="Privat"){toast("No pots eliminar un xisme que és en un intercanvi");return}x.del=1;S.sel=null;toast("Mogut a la paperera")}
+ else if(a==="res"){x.del=0;S.sel=null}
+ else if(a==="purge"){S.mine=S.mine.filter(function(y){return y.id!==x.id});S.sel=null}
+ render()}
+function claim(id){S.ms.forEach(function(m){if(m.id===id&&m.p>=m.g&&!m.c){m.c=1;S.bal+=m.r;toast("+"+m.r+" Buris guanyats")}});render()}
+function show(h){$("md").innerHTML=h;$("ov").style.display="flex"}
+function hide(){$("ov").style.display="none"}
+function fopts(s){return `<option value="">La meva unitat</option>`+S.folders.map(function(f){return `<option value="${f.id}"${f.id===s?" selected":""}>${esc(f.name)}</option>`}).join("")}
+function openItem(id){var x=id?item(id):null;
+ show(`<h3>${x?"Edita el xisme":"Nou xisme"}</h3><label>Títol</label><input id="f_t" maxlength="60" value="${x?esc(x.t):""}"><label>Tipus</label><select id="f_c"><option${x&&x.cat==="Confidència"?"":" selected"}>Xisme</option><option${x&&x.cat==="Confidència"?" selected":""}>Confidència</option></select><label>Contingut</label><textarea id="f_d">${x?esc(x.d):""}</textarea><label>Carpeta</label><select id="f_f">${fopts(x?x.f:S.fid)}</select><div class="ft"><button class="btn o" onclick="hide()">Cancel·la</button><button class="btn" onclick="saveItem(${id||0})">Desa</button></div>`)}
+function saveItem(id){var t=val("f_t"),d=val("f_d");if(!t||!d){toast("Cal un títol i un contingut");return}var f=+$("f_f").value||null,c=$("f_c").value;
+ if(id){var x=item(id);x.t=t;x.d=d;x.cat=c;x.f=f;x.m=Date.now()}
+ else{var n={id:S.nid++,t:t,d:d,cat:c,f:f,star:0,del:0,m:Date.now()};S.mine.push(n);S.sel=n.id;S.det=1;S.view="unitat";S.fid=f;S.tf=S.sf="tot";prog(1,1);prog(2,1)}
+ hide();render();toast(id?"Xisme desat":"Xisme creat")}
+function openFolder(){show(`<h3>Carpeta nova</h3><label>Nom de la carpeta</label><input id="f_n" maxlength="40"><div class="ft"><button class="btn o" onclick="hide()">Cancel·la</button><button class="btn" onclick="saveFolder()">Crea</button></div>`)}
+function saveFolder(){var n=val("f_n");if(!n){toast("Cal un nom");return}S.folders.push({id:S.fn++,name:n});prog(5,1);hide();S.view="unitat";S.fid=null;render();toast("Carpeta creada")}
+function openEx(g){var a=S.mine.filter(function(x){return !x.del&&stOf(x.id)==="Privat"});
+ if(!a.length){toast(g?"Aquest xisme ja és en un intercanvi":"Crea primer un xisme privat per intercanviar");return}
+ show(`<h3>Nou intercanvi</h3><label>Xisme que dones</label><select id="e_g">${a.map(function(x){return `<option value="${x.id}"${x.id===g?" selected":""}>${esc(x.t)}</option>`}).join("")}</select><label>Amb qui (àlies)</label><input id="e_t" maxlength="30"><label>Quin xisme busques a canvi</label><textarea id="e_w" placeholder="Per exemple: una confidència sobre una parella de l’institut"></textarea><div class="ft"><button class="btn o" onclick="hide()">Cancel·la</button><button class="btn" onclick="saveEx()">Proposa</button></div>`)}
+function saveEx(){var to=val("e_t"),w=val("e_w");if(!to||!w){toast("Indica amb qui i què busques");return}
+ S.ex.push({id:S.xn++,g:+$("e_g").value,to:to,want:w,got:null,st:"pendent",m:Date.now()});prog(3,1);hide();S.view="intercanvis";S.sel=null;render();toast("Intercanvi proposat")}
+function cancelEx(id){S.ex=S.ex.filter(function(e){return e.id!==id});render()}
+function openDone(id){show(`<h3>Intercanvi fet</h3><p class="sub" style="margin:0">Registra el xisme que has aconseguit a canvi.</p><label>Títol del xisme rebut</label><input id="d_t" maxlength="60"><label>Contingut</label><textarea id="d_d"></textarea><div class="ft"><button class="btn o" onclick="hide()">Cancel·la</button><button class="btn" onclick="saveDone(${id})">Desa</button></div>`)}
+function saveDone(id){var t=val("d_t"),d=val("d_d");if(!t||!d){toast("Cal un títol i un contingut");return}
+ S.ex.forEach(function(e){if(e.id===id){e.got={t:t,d:d};e.st="fet";e.m=Date.now()}});prog(4,1);hide();render();toast("Intercanvi completat")}
+function nmT(e){e.stopPropagation();var m=$("nm");m.style.display=m.style.display==="block"?"none":"block"}
+function th(){var d=document.documentElement,dk=d.dataset.theme?d.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;d.dataset.theme=dk?"light":"dark"}
+function openProfile(){S.lock=1;show(`<h3>Crea el teu perfil</h3><p style="color:var(--mut);margin:0">Abans d’entrar, tria un àlies i una foto de perfil. Els altres membres només veuran això.</p><div style="display:flex;justify-content:center;margin:18px 0 4px"><label class="ph" id="ph" for="pf">+<br>Foto</label><input type="file" id="pf" accept="image/*" style="display:none" onchange="pickPh(this)"></div><label>Àlies</label><input id="pn" maxlength="24"><div class="ft"><button class="btn" onclick="saveProf()">Entra a Nyaburi</button></div>`)}
+function pickPh(i){var f=i.files[0];if(!f)return;var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var c=document.createElement("canvas");c.width=c.height=160;var s=Math.min(im.width,im.height);c.getContext("2d").drawImage(im,(im.width-s)/2,(im.height-s)/2,s,s,0,0,160,160);S.ph=c.toDataURL("image/jpeg",.85);var p=$("ph");p.style.backgroundImage="url("+S.ph+")";p.textContent=""};im.src=r.result};r.readAsDataURL(f)}
+function saveProf(){var n=val("pn");if(!n||!S.ph){toast("Cal un àlies i una foto de perfil");return}S.profile={n:n,p:S.ph};try{localStorage.setItem("nyaburi.profile",JSON.stringify(S.profile))}catch(e){}S.lock=0;hide();prog(8,1);render();toast("Hola, "+n)}
+document.querySelectorAll(".lg").forEach(function(e){e.innerHTML=ic("heart")});
+$("sic").innerHTML=ic("search");$("thb").innerHTML=ic("moon");$("nb").innerHTML=ic("plus")+"Nou";
+$("nm").innerHTML=`<button onclick="openItem()">${ic("chat")}Xisme nou</button><button onclick="openFolder()">${ic("folder")}Carpeta nova</button><button onclick="openEx()">${ic("swap")}Intercanvi nou</button>`;
+document.addEventListener("click",function(){$("nm").style.display="none"});
+$("q").addEventListener("input",function(e){S.q=e.target.value;render()});
+$("ov").addEventListener("click",function(e){if(e.target.id==="ov"&&!S.lock)hide()});
+function route(){var app=location.hash==="#app";$("landing").style.display=app?"none":"block";$("app").style.display=app?"flex":"none";window.scrollTo(0,0);
+ if(app){if(!S.profile){try{var p=localStorage.getItem("nyaburi.profile");if(p)S.profile=JSON.parse(p)}catch(e){}}if(S.profile)prog(8,1);render();if(!S.profile)openProfile()}}
+window.addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
